@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Team, Player } from '../interfaces';
+import { Team, Player } from "../interfaces";
 import { fetchPlayers } from "../services/api";
+import "../styles/teamCard.css";
+import PlayerCard from "./playerCard";
 
 const TeamCard: React.FC<Team> = ({ idTeam, strTeam, strBadge }) => {
     const [players, setPlayers] = useState<Player[]>([]);
@@ -9,7 +11,7 @@ const TeamCard: React.FC<Team> = ({ idTeam, strTeam, strBadge }) => {
         const getPlayer = async () => {
             const data = await fetchPlayers(idTeam);
             setPlayers(data);
-        }
+        };
 
         getPlayer();
     }, [idTeam]);
@@ -18,9 +20,15 @@ const TeamCard: React.FC<Team> = ({ idTeam, strTeam, strBadge }) => {
         <div className="teamCard">
             <img src={strBadge} alt={strTeam} />
             <h2>{strTeam}</h2>
-            <div className="player-list">
+            <div className="playerList">
                 {players.map((player) => (
-                    <p key={player.idPlayer}>{player.strPlayer} - {player.strPosition}</p>
+                    <PlayerCard
+                        key={player.idPlayer}
+                        idPlayer={player.idPlayer}
+                        strPlayer={player.strPlayer}
+                        strPosition={player.strPosition}
+                        strThumb={player.strThumb}
+                    />
                 ))}
             </div>
         </div>

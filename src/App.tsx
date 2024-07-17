@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchTeams } from "./services/api";
 import TeamCard from "./components/teamCard";
-import './App.css';
+import './styles/App.css';
 import { Team } from './interfaces';
 
 const App: React.FC = () => {

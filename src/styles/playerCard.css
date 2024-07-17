@@ -1,0 +1,14 @@
+.playerList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .player {
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        img {
+            border-radius: 50%;
+        }
+    }
+}
