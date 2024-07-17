@@ -1,0 +1,43 @@
+Championship - 4329
+Premier League - 4328
+    EFL - 4847
+Bundesliga - 4331
+Serie A - 4332
+Ligue 1 - 4334
+La Liga - 4335
+UCL 4480
+Europa League - 4481
+Europa Conference League - 4534
+NBA - 4387
+
+Lista drużyn z prem
+https://www.thesportsdb.com/api/v2/json/3/list/teams/English_Premier_League
+
+lista full zawodników z po ID zespołu
+https://www.thesportsdb.com/api/v2/json/3/list/players/133604
+
+kontrakty zawodnika po ID
+https://www.thesportsdb.com/api/v2/json/3/lookup/player_contracts/34146304
+
+dane zawodnika po ID
+https://www.thesportsdb.com/api/v2/json/3/lookup/player/34172575
+
+dane zawodnika po ID
+/api/v1/json/3/lookupplayer.php?id=34145937
+
+
+dane związane z meczem po id
+/api/v2/json/3/lookup/event/441613
+/api/v2/json/3/lookup/event_lineup/1937584
+/api/v2/json/3/lookup/event_results/652890
+/api/v2/json/3/lookup/event_stats/1937584
+/api/v2/json/3/lookup/event_timeline/1937584
+
+wydarzenie z ID_ligi/runda/sezon(2023-2024)
+https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=4328&r=38&s=2014-2015
+
+ostatnie 5 meczów drużyny po id
+https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=133602
+
+kontrakt zawodnika rok od do
+https://www.thesportsdb.com/api/v1/json/3/lookupcontracts.php?id=34147178
