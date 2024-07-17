@@ -1,25 +1,24 @@
 .App {
     text-align: center;
-  }
-  
-  .teamGrid {
+}
+
+.teamGrid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-  }
-  
-  .teamCard {
+}
+
+.teamCard {
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
     width: 200px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .teamCard img {
+}
+
+.teamCard img {
     max-width: 100px;
     height: auto;
-  }
-  
+}
