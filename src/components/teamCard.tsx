@@ -6,6 +6,7 @@ import PlayerCard from "./playerCard";
 
 const TeamCard: React.FC<Team> = ({ idTeam, strTeam, strBadge }) => {
     const [players, setPlayers] = useState<Player[]>([]);
+    const [clickedTeamID, setClickedTeamID] = useState<string | null>(null);
 
     useEffect(() => {
         const getPlayer = async () => {
@@ -16,8 +17,14 @@ const TeamCard: React.FC<Team> = ({ idTeam, strTeam, strBadge }) => {
         getPlayer();
     }, [idTeam]);
 
+    const handleClick = () => {
+        setClickedTeamID(clickedTeamID === idTeam ? null : idTeam);
+    };
+
     return (
-        <div className="teamCard">
+        <div
+            className={`teamCard ${clickedTeamID === idTeam ? "clickedTeamCard" : ""}`}
+            onClick={handleClick}>
             <img src={strBadge} alt={strTeam} />
             <h2>{strTeam}</h2>
             <div className="playerList">

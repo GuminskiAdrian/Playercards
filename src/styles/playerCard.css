@@ -1,7 +1,5 @@
 .playerList {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: none;
     .player {
         padding: 0.5rem;
         border: 1px solid #ddd;
@@ -10,5 +8,42 @@
         img {
             border-radius: 50%;
         }
+    }
+
+    .manager {
+        order: 1;
+    }
+
+    .goalkeeper {
+        order: 2;
+    }
+
+    .leftBack {
+        order: 3;
+    }
+
+    .back,
+    .defender {
+        order: 4;
+    }
+
+    .rightBack {
+        order: 5;
+    }
+
+    .midfield {
+        order: 6;
+    }
+
+    .wing {
+        order: 7;
+    }
+
+    .forward {
+        order: 8;
+    }
+
+    .other {
+        order: 9;
     }
 }

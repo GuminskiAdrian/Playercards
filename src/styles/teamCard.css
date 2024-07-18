@@ -5,9 +5,19 @@
     width: 200px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
+    order: 2;
     img {
         max-width: 100px;
         height: auto;
+    }
+}
+
+.clickedTeamCard {
+    order: 1;
+    width: 90%;
+    .playerList {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 0.5rem;
     }
 }
