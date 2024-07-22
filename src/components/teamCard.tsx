@@ -17,6 +17,7 @@ const TeamCard: React.FC<Team> = ({ idTeam, strTeam, strBadge }) => {
         getPlayer();
     }, [idTeam]);
 
+
     const handleClick = () => {
         setClickedTeamID(clickedTeamID === idTeam ? null : idTeam);
     };

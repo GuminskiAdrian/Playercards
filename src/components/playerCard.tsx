@@ -1,6 +1,8 @@
-import React from "react";
-import { Player } from "../interfaces";
+import React, { useEffect, useState } from "react";
+import { Player, PlayerData } from "../interfaces";
+import PlayerDataCard from "./playerDataCard";
 import "../styles/playerCard.css";
+import { fetchPlayerData } from "../services/api";
 
 const PlayerCard: React.FC<Player> = ({
     idPlayer,
@@ -23,12 +25,37 @@ const PlayerCard: React.FC<Player> = ({
 
     const positionClass = getClassFromPosition(strPosition);
 
+    const [playerData, setPlayerData] = useState<PlayerData | null>(null);
+
+    useEffect(() => {
+        const getData = async () => {
+            const data = await fetchPlayerData(idPlayer);
+            setPlayerData(data);
+        };
+
+        getData();
+    }, [idPlayer]);
+
     return (
         <div className={`player ${positionClass}`}>
             <img src={strThumb} alt={`${strThumb}${strPlayer}`} />
             <p key={idPlayer}>
                 {strPlayer} - {strPosition}
             </p>
+            {!playerData ? (<p>Loading...</p>) : (
+            <PlayerDataCard
+                key={idPlayer}
+                idPlayer={idPlayer}
+                strNationality={playerData.strNationality}
+                dateBorn={playerData.dateBorn}
+                strBirthLocation={playerData.strBirthLocation}
+                strNumber={playerData.strNumber}
+                strSigned={playerData.strSigned}
+                strWage={playerData.strWage}
+                strHeight={playerData.strHeight}
+                strWeight={playerData.strWeight}
+            />
+            )}
         </div>
     );
 };

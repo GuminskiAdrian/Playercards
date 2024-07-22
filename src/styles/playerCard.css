@@ -15,35 +15,35 @@
     }
 
     .goalkeeper {
-        order: 2;
+        order: 3;
     }
 
     .leftBack {
-        order: 3;
+        order: 4;
     }
 
     .back,
     .defender {
-        order: 4;
-    }
-
-    .rightBack {
         order: 5;
     }
 
-    .midfield {
+    .rightBack {
         order: 6;
     }
 
-    .wing {
+    .midfield {
         order: 7;
     }
 
-    .forward {
+    .wing {
         order: 8;
     }
 
-    .other {
+    .forward {
         order: 9;
+    }
+
+    .other {
+        order: 10;
     }
 }
