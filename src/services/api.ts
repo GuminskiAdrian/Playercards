@@ -33,6 +33,6 @@ export const fetchPlayerData = async (PlayerID: string) => {
         return response.data.players[0];
     } catch (error) {
         console.log("Error fetching teams:", error);
-        return [];
+        return null;
     }
 };

@@ -26,36 +26,45 @@ const PlayerCard: React.FC<Player> = ({
     const positionClass = getClassFromPosition(strPosition);
 
     const [playerData, setPlayerData] = useState<PlayerData | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
 
-    useEffect(() => {
-        const getData = async () => {
+    const handlePlayerclick = async (event: React.MouseEvent) => {
+        event.stopPropagation();
+        setIsClicked(!isClicked);
+        if (!isClicked) {
+            setIsLoading(true);
             const data = await fetchPlayerData(idPlayer);
             setPlayerData(data);
-        };
-
-        getData();
-    }, [idPlayer]);
+            setIsLoading(false);
+        }
+    };
 
     return (
-        <div className={`player ${positionClass}`}>
+        <div className={`player ${positionClass}`} onClick={handlePlayerclick}>
             <img src={strThumb} alt={`${strThumb}${strPlayer}`} />
             <p key={idPlayer}>
                 {strPlayer} - {strPosition}
             </p>
-            {!playerData ? (<p>Loading...</p>) : (
-            <PlayerDataCard
-                key={idPlayer}
-                idPlayer={idPlayer}
-                strNationality={playerData.strNationality}
-                dateBorn={playerData.dateBorn}
-                strBirthLocation={playerData.strBirthLocation}
-                strNumber={playerData.strNumber}
-                strSigned={playerData.strSigned}
-                strWage={playerData.strWage}
-                strHeight={playerData.strHeight}
-                strWeight={playerData.strWeight}
-            />
-            )}
+            {isClicked &&
+                (isLoading ? (
+                    <p>Loading...</p>
+                ) : (
+                    playerData && (
+                        <PlayerDataCard
+                            key={`${strPlayer}-${idPlayer}`}
+                            idPlayer={idPlayer}
+                            strNationality={playerData.strNationality}
+                            dateBorn={playerData.dateBorn}
+                            strBirthLocation={playerData.strBirthLocation}
+                            strNumber={playerData.strNumber}
+                            strSigned={playerData.strSigned}
+                            strWage={playerData.strWage}
+                            strHeight={playerData.strHeight}
+                            strWeight={playerData.strWeight}
+                        />
+                    )
+                ))}
         </div>
     );
 };
