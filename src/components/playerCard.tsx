@@ -28,6 +28,7 @@ const PlayerCard: React.FC<Player> = ({
     const [playerData, setPlayerData] = useState<PlayerData | null>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
+    const [clickedPlayerID, setClickedPlayerID] = useState<string | null>(null);
 
     const handlePlayerclick = async (event: React.MouseEvent) => {
         event.stopPropagation();
@@ -38,10 +39,15 @@ const PlayerCard: React.FC<Player> = ({
             setPlayerData(data);
             setIsLoading(false);
         }
+        setClickedPlayerID(clickedPlayerID === idPlayer ? null : idPlayer);
     };
 
     return (
-        <div className={`player ${positionClass}`} onClick={handlePlayerclick}>
+        <div
+            className={`player ${positionClass} ${
+                clickedPlayerID === idPlayer ? "clickedPlayer specificity" : ""
+            }`}
+            onClick={handlePlayerclick}>
             <img src={strThumb} alt={`${strThumb}${strPlayer}`} />
             <p key={idPlayer}>
                 {strPlayer} - {strPosition}

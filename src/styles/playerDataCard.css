@@ -1,0 +1,25 @@
+.player.clickedPlayer.specificity {
+    order: 1;
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr;
+
+    justify-items: center;
+    align-items: center;
+
+    img {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    p {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: flex-start;
+    }
+    .playerDataCard {
+       grid-column: 2;
+       grid-row: 1 / -1;
+    }
+}

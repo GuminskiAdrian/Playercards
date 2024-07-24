@@ -1,4 +1,5 @@
 import { PlayerData } from "../interfaces";
+import '../styles/playerDataCard.css';
 
 const PlayerDataCard: React.FC<PlayerData> = ({
     idPlayer,
